@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(void) {
-    // varianle declaration and input
+    // variable declaration and input
     vector<int> v;
     int temp;
     while (cin >> temp)
