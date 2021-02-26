@@ -2,27 +2,25 @@
 using namespace std;
 
 int main(void) {
-    const int col = 2;
-    int row;
-    cin >> row;
-    int teams[row][col];
-    for (int i=0; i<row; i++) {
-        for (int j=0; j<col; j++) 
-            cin >> teams[i][j];
+    int t;
+    cin >> t;
+    vector<int> host, guest;
+    for (int i=0; i<2*t; i++) {
+        int temp;
+        cin >> temp;
+        if (i%2!=0)
+            host.push_back(temp);
+        else 
+            guest.push_back(temp);
     }
-    int host, guest, res = 0;
-    for (int i=0; i<row; i++) {
-        host = teams[i][0];
-        for (int j=0; j<row; j++) {
-            guest = teams[j][1];
-            cout << host << " " << guest << endl;
-            if (true) ;
-            else if (host == guest) {
-                res++;
-            }
+    int count = 0;
+    for (int i=0; i<host.size(); i++) {
+        for (int j=0; j<guest.size(); j++) {
+            if (host[i] == guest[j])
+                count++;
         }
     }
-    cout << res << endl;
+    cout << count << endl;
 
     return 0;
 }
