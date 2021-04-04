@@ -1,13 +1,10 @@
 def main():
-    question = int(input())
-    pos = int(input())
-    marks = [int(input()) for i in range(question)]
-    passedParticipants = 0
-    minMarks = marks[pos-1]
-    for i in marks:
-        if i > 0 and i >= minMarks:
-            passedParticipants += 1
-    print(passedParticipants)
+    n, k = map(int, input().split())
+    arr = list(map(int, input().split()))
+    k_val = arr[k-1]
+    arr = [arr[i]
+           for i in range(n) if arr[i] > 0 and arr[i] >= k_val]
+    print(len(arr))
 
 
 if __name__ == '__main__':
