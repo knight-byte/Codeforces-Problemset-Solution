@@ -1,17 +1,10 @@
 def main():
     word = input()
-    newWord = ""
-    cap, small = 0, 0
-    for i in word:
-        if i.isupper():
-            cap += 1
-        else:
-            small += 1
-    if cap > small:
-        newWord = word.upper()
+    x = [1 for _ in word if _.islower()]
+    if len(x) >= len(word)-len(x):
+        print(word.lower())
     else:
-        newWord = word.lower()
-    print(newWord)
+        print(word.upper())
 
 
 if __name__ == '__main__':
