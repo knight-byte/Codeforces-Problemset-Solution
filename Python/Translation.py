@@ -1,10 +1,7 @@
 def main():
-    t = input()
-    s = input()[::-1]
-    if t == s:
-        print("YES")
-    else:
-        print("NO")
+    word = input().lower()
+    word_rev = input().lower()
+    print("YES" if word == word_rev[::-1] else "NO")
 
 
 if __name__ == '__main__':
