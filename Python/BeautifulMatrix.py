@@ -1,25 +1,17 @@
 def main():
-    matrix = [[0 for j in range(5)] for i in range(5)]
-    row, col = 0, 0
+    matrix = [list(map(int, input().split())) for _ in range(5)]
+    col = 0
+    row = 0
     for i in range(5):
-        for j in range(5):
-            matrix[i][j] = int(input())
-            if matrix[i][j] == 1:
-                row = i+1
-                col = j+1
-
-    pos = 0
-    if 3-row < 0:
-        row = (-1*(3-row))
-    else:
-        row = 3-row
-    if 3-col < 0:
-        col = (-1*(3-col))
-    else:
-        col = 3-col
-    pos = row+col
-    print(pos)
+        if 1 in matrix[i]:
+            row = i+1
+            for j in range(5):
+                if 1 == matrix[i][j]:
+                    col = j+1
+                    break
+            break
+    print(abs(row-3)+abs(col-3))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
