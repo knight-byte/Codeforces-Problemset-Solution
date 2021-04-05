@@ -1,17 +1,14 @@
 def main():
     stops = int(input())
-    exit = []
-    enter = []
-    for i in range(stops):
-        exit.append(int(input()))
-        enter.append(int(input()))
-    sum = 0
-    maxCapacity = 0
-    for i in range(stops):
-        sim = sum-exit[i]+enter[i]
-        if sum >= maxCapacity:
-            maxCapacity = sum
-    print(maxCapacity)
+    total_pass = 0
+    max_pass = 0
+    for _ in range(stops):
+        a, b = map(int, input().split())
+        total_pass -= a
+        total_pass += b
+        max_pass = max(max_pass, total_pass)
+
+    print(max_pass)
 
 
 if __name__ == '__main__':

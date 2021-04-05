@@ -1,14 +1,13 @@
 def main():
-    n = int(input())
-    while True:
-        n += 1
-        a = n/1000
-        b = n/100 % 10
-        c = n/10 % 10
-        d = n % 10
-        if a != b and a != c and a != d and b != c and b != d and c != d:
+    year = int(input())
+    for i in range(year+1, 9002):
+        x = tuple(str(i))
+        if len(x) == len(set(x)):
+            print("".join(x))
             break
-        print(n)
+    else:
+        print("9012")
 
-    if __name__ == '__main__':
-        main()
+
+if __name__ == '__main__':
+    main()

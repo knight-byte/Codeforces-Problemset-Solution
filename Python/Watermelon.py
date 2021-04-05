@@ -1,10 +1,10 @@
 def main():
-    n = int(input())
-    if n == 2 and n % 2 == 1:
-        print("NO")
-    else:
+    w = int(input())
+    if w % 2 == 0 and w >= 4:
         print("YES")
+    else:
+        print("NO")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

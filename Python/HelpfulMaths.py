@@ -1,13 +1,8 @@
 def main():
-    s1 = input()
-    arr1 = [int(i) for i in s1 if i != "+"]
-    finalString = ""
-    arr1 = sorted(arr1)
-    for i in arr1:
-        finalString += str(i)+"+"
-    finalString = finalString[:len(finalString)-1]
-    print(finalString)
+    mat = list(map(int, input().split("+")))
+    mat = sorted(mat)
+    print("+".join(map(str, mat)))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
