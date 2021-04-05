@@ -1,6 +1,6 @@
 def main():
     n = int(input())
-    arr = [int(input()) for i in range(n)]
+    arr = list(map(int, input().split()))
     total = sum(arr)
     print(total/n)
 
