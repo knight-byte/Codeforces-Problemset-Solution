@@ -7,10 +7,10 @@ def main():
     damaged = set()
     if d < k or d < l or d < m or d < n:
         print(0)
-    elif k == 1:
+    elif 1 in [k, l, m, n]:
         print(d)
     else:
-        for i in range(1, d+1):
+        for i in range(2, d+1):
             if i % k == 0:
                 damaged.add(i)
             elif i % l == 0:
