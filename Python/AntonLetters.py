@@ -1,10 +1,10 @@
+import re
+
+
 def main():
     str1 = input()
-    panda = set()
-    for i in range(len(str1)):
-        if str1[i].isalpha():
-            panda.add(str1)
-    print(len(panda))
+    re_strip = re.findall(r"[a-z]", string=str1, flags=re.IGNORECASE)
+    print(len(set(re_strip)))
 
 
 if __name__ == "__main__":
