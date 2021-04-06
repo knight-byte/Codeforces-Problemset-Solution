@@ -4,7 +4,7 @@ def main():
     c = sorted(list(input()))
     s = sorted(list(a+b))
     if s == c:
-        print('YES')
+        print("YES")
     else:
         print("NO")
 
