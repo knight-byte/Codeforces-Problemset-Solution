@@ -1,19 +1,16 @@
 def main():
     t = int(input())
-    ans = []
-    while t:
+    for _ in range(t):
         n = int(input())
-        a = [int(input()) for i in range(n)]
-        b = [int(input()) for i in range(n)]
-        mina = min(a)
-        minb = min(b)
-        res = 0
+        a = list(map(int, input().split()))
+        b = list(map(int, input().split()))
+        a_min = min(a)
+        b_min = min(b)
+        count = 0
         for i in range(n):
-            res += max(a[i]-mina, b[i]-minb)
-        ans.append(res)
-        t -= 1
-    for i in ans:
-        print(i)
+            count += max(a[i]-a_min, b[i]-b_min)
+
+        print(count)
 
 
 if __name__ == "__main__":
