@@ -1,14 +1,18 @@
 def main():
-    n = int(input())
-    m = int(input())
-    v1 = []
-    tail_pos = 1
-    for i in range(n):
-        temp = ""
-        for j in range(m):
-            if i % 2 == 0:
-                temp += "#"
-        v1.append(temp)
+    n, m = map(int, input().split())
+    hash = "#"*m
+    dot = [hash]
+    d = True
+    for i in range(n//2):
+        if d:
+            d = not d
+            dot.append(f"{'.'*(m-1)}#")
+        else:
+            dot.append(f"#{'.'*(m-1)}")
+            d = not d
+        dot.append(hash)
+    ans = "\n".join(dot)
+    print(ans)
 
 
 if __name__ == "__main__":
