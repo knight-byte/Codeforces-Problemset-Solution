@@ -1,8 +1,8 @@
 def main():
     t = int(input())
-    while t:
+    for _ in range(t):
         n = int(input())
-        arr = sorted([int(input()) for i in range(n)])
+        arr = sorted(list(map(int, input().split())))
         state = True
         for i in range(n-1):
             if arr[i+1]-arr[i] > 1:
@@ -13,7 +13,6 @@ def main():
             print("YES")
         else:
             print("NO")
-        t -= 1
 
 
 if __name__ == '__main__':

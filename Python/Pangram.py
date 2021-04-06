@@ -1,12 +1,11 @@
 def main():
     n = int(input())
-    string = input()
-    string = string.lower()
-    s1 = set([i for i in string])
+    string = input().lower()
+    s1 = set(string)
     if len(s1) == 26:
         print("YES")
     else:
-        print("No")
+        print("NO")
 
 
 if __name__ == '__main__':

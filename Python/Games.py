@@ -1,19 +1,15 @@
 def main():
-    t = int(input())
-    host = []
+    n = int(input())
+    home = []
     guest = []
-    for i in range(2*t):
-        temp = int(input())
-        if i % 2 != 0:
-            host.append(temp)
-        else:
-            guest.append(temp)
-    count = 0
-    for i in range(len(host)):
-        for j in range(len(guest)):
-            if host[i] == guest[j]:
-                count += 1
-    print(count)
+    for _ in range(n):
+        x, y = map(int, input().split())
+        home.append(x)
+        guest.append(y)
+    cnt = 0
+    for i in home:
+        cnt += guest.count(i)
+    print(cnt)
 
 
 if __name__ == "__main__":
