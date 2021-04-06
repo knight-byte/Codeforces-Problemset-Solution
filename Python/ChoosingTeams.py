@@ -1,13 +1,11 @@
 def main():
-    n = int(input())
-    k = int(input())
-    total = 0
-    while (n):
-        temp = int(input())
-        if 5-temp >= k:
-            total += 1
-        n -= 1
-    print(total/3)
+    n, k = map(int, input().split())
+    arr = sorted(list(map(int, input().split())))
+    for i in range(n):
+        if arr[i]+k > 5:
+            arr = arr[:i]
+            break
+    print(len(arr)//3)
 
 
 if __name__ == "__main__":
