@@ -1,16 +1,15 @@
 def main():
-    n = int(input())
-    t = int(input())
-    s = input()
-    ans = []
-    while t > 0:
-        for i in range(n-1):
-            if s[i] == "B" and s[i+1] == "G":
-                s[i], s[i+1] = s[i+1], s[i]
+    n, t = map(int, input().split())
+    queue = list(input().upper())
+    for _ in range(t):
+        i = 0
+        while i < n-1:
+            if queue[i] == "B" and queue[i+1] == "G":
+                queue[i], queue[i+1] = queue[i+1], queue[i]
+                i += 2
+            else:
                 i += 1
-        t -= 1
-
-    print(s)
+    print("".join(queue))
 
 
 if __name__ == '__main__':

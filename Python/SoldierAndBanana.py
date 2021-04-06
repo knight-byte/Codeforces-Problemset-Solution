@@ -1,14 +1,9 @@
 def main():
-    price = int(input())
-    money = int(input())
-    quantity = int(input())
-    totalAmount = 0
-    for i in range(1, quantity+1):
-        totalAmount += i*price
-    if totalAmount <= money:
-        print(0)
-    else:
-        print(totalAmount-money)
+    k, n, w = map(int, input().split())
+    amt = 0
+    for i in range(1, w+1):
+        amt += i*k
+    print(amt-n if amt > n else 0)
 
 
 if __name__ == '__main__':

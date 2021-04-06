@@ -1,14 +1,11 @@
+from itertools import groupby
+
+
 def main():
-    num = int(input())
-    s1 = input()
-    cons = s1[0]
-    result = 0
-    for i in s1:
-        if i == cons:
-            result += 1
-        else:
-            cons = i
-    print(result-1)
+    length = int(input())
+    stones = input()
+    x = [i[0] for i in list(groupby(stones))]
+    print(len(stones)-len(x))
 
 
 if __name__ == '__main__':
