@@ -1,18 +1,15 @@
 def main():
     n = int(input())
-    maxIn, maxVal, minIn, minVal = 0, 0, 0, 1000
-    for i in range(n):
-        x = int(input())
-        if x > maxVal:
-            maxVal = x
-            maxIn = i
-        if x <= minVal:
-            minVal = x
-            minIn = i
-    if maxIn > minIn:
-        print((maxIn-1)+(n-minIn)-1)
+    arr = list(map(int, input().split()))
+    minVal = min(arr)
+    maxVal = max(arr)
+    rev_arr = arr[::-1]
+    ma_pos = arr.index(maxVal)
+    mi_pos = rev_arr.index(minVal)
+    if ma_pos >= n-mi_pos-1:
+        print(ma_pos+mi_pos-1)
     else:
-        print((maxIn-1)+(n-minIn))
+        print(ma_pos+mi_pos)
 
 
 if __name__ == '__main__':
