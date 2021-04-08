@@ -1,13 +1,21 @@
 def main():
     n = int(input())
-    arr = [[] for i in range(4)]
+    arr = tuple(map(int, input().split()))
+    x = min(arr.count(1), arr.count(2), arr.count(3))
+    a, b, c = [], [], []
+    count = 0
+    print(x)
     for i in range(n):
-        x = int(input())
-        arr[x].append(i+1)
-    res = min(len(arr[1]), min(len(arr[2]), len(arr[3])))
-    print(res)
-    for i in range(res):
-        print(arr[1][i], " ", arr[2][i], " ", arr[3][i])
+        if len(a) == len(b) == len(c) == x:
+            break
+        elif arr[i] == 1:
+            a.append(i+1)
+        elif arr[i] == 2:
+            b.append(i+1)
+        elif arr[i] == 3:
+            c.append(i+1)
+    for i in range(x):
+        print(a[i], b[i], c[i])
 
 
 if __name__ == '__main__':
