@@ -1,22 +1,32 @@
+import math
+
+
 def main():
-    num = 4
-    arr = []
-    sol = []
-    inp = int(input())
-    while inp != None:
-        arr.append(inp)
-        inp = int(input())
+    l = sorted(list(map(int, input().split())))
+    p, q, r, s = map(int, l)
+    b = math.ceil((r - q + p)/2)
+    a = p - b
+    c = q - (p - b)
+    print(a, b, c)
 
-    arr = sorted(arr)
-    for i in arr:
-        if i != arr[num-1]:
-            temp = arr[num-1]-i
-            sol.append(temp)
-        else:
-            break
 
-    for i in sol:
-        print(i, end=" ")
+if __name__ == '__main__':
+    main()
 
-    if __name__ == '__main__':
-        main()
+
+'''
+-- logic --
+p = a + b  =>  a = p - b
+q = a + c  =>  c = q - ( p - b )
+r = b + c  =>  c = r - b
+
+r - b =  q - p + b 
+2b = r - q + p
+
+b = ( r - q + p )/2 
+a = p - b
+c = r - b 
+
+s = a + b + c
+
+'''

@@ -1,17 +1,16 @@
 def main():
-    events = int(input())
-    arr = [int(input()) for i in range(events)]
+    n = int(input())
+    arr = list(map(int, input().split()))
     police = 0
-    ans = 0
-    for i in range(events):
-        if arr[i] == -1:
-            if ~police:
-                ans += 1
-            else:
-                police -= 1
-        else:
-            police += arr[i]
-    print(ans)
+    count = 0
+    for i in arr:
+        if i == -1 and police == 0:
+            count += 1
+        elif i == -1 and police > 0:
+            police -= 1
+        elif i > 0:
+            police += i
+    print(count)
 
 
 if __name__ == '__main__':

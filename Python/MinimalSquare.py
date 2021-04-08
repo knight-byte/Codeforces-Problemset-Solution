@@ -1,14 +1,13 @@
 def main():
     t = int(input())
-    ans = []
-    while t:
-        a = int(input())
-        b = int(input())
-        side = min(max(2*a, b), max(a, 2*b))
-        ans.append(side)
-        t -= 1
-    for i in ans:
-        print(i)
+    for _ in range(t):
+        a, b = map(int, input().split())
+        mi = min(a, b)
+        ma = max(a, b)
+        if mi*2 < ma:
+            print(ma**2)
+        else:
+            print((mi*2)**2)
 
 
 if __name__ == '__main__':

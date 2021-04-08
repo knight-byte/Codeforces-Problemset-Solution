@@ -1,19 +1,28 @@
 def main():
     t = int(input())
-    ans = []
-    while t:
-        x = int(input())
-        y = int(input())
-        n = int(input())
-        if n-n % x+y <= n:
-            ans.append(n-n % x+y)
-        else:
-            ans.append(n-n % x-(x-y))
-        t -= 1
-
-    for i in ans:
-        print(i)
+    for _ in range(t):
+        x, y, n = map(int, input().split())
+        ans = n + (x - (n % x)) - (x - y)
+        if n % x < y:
+            ans -= x
+        print(ans)
 
 
 if __name__ == '__main__':
     main()
+
+# ----------------- IGNORE -------------
+'''
+-- logic --
+k % x = y
+
+e.g. 
+
+x = 3, y = 1, n =11  
+2
+
+11 + ( 3 - 2'rem' ) => 12 - ( 3 - 1 ) => 11 + ( 3 - 2'rem' ) - ( 3 - 1'req' ) 
+                                      => n + ( x - ( n % x )) - ( x - y )
+
+if rem < y : ans-y 
+'''
