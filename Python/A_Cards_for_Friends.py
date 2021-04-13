@@ -1,32 +1,42 @@
 def main():
-    t = int(input())
-    for _ in range(t):
-        w, h, n = map(int, input().split())
-        count = 0
-        while (w > 0 and h > 0) and (w % 2 == 0 or h % 2 == 0):
-            if count*2 >= n:
-                break
-            if w % 2 == 0 and h % 2 == 0:
-                if w >= h:
-                    w = (w//2)
-                else:
-                    h = (h//2)
-                count += 1
-            elif w % 2 == 0:
+    w, h, n = map(int, input().split())
+    count = 1
+    while w > 1 or h > 1:
+        if count >= n or (w % 2 != 0 and h % 2 != 0):
+            break
+        elif w % 2 == 0 and h % 2 == 0:
+            if w >= h:
                 w = (w//2)
-                count += 1
-
-            elif h % 2 == 0:
+            else:
                 h = (h//2)
-                count += 1
+            count *= 2
+        elif w % 2 == 0:
+            w = (w//2)
+            count *= 2
 
-        print(count*2, w, h)
-        if count * 2 >= n  == 1 and :
-            print("YES")
+        elif h % 2 == 0:
+            h = (h//2)
+            count *= 2
 
-        else:
-            print("NO")
+    if count >= n:
+        print("YES")
+    else:
+        print("NO")
 
 
 if __name__ == '__main__':
-    main()
+    t = int(input())
+    for _ in range(t):
+        main()
+
+'''
+1 2 3 4 5 6 7 8                         = 1
+1 2 3 4         5 6 7 8                 = 2
+1 2 3 4         5 6        7 8          = 4
+1 2 3 4         5 6        7         8  = 8
+
+
+1 2 3 4 5 6 7 8 9 10 11 12              = 1
+1 2 3 4 5 6      7 8 9 10 11 12         = 2
+1 2 3 4 5 6      7 8 9      10 11 12    = 4 
+'''
