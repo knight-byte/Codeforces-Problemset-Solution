@@ -21,9 +21,9 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                               `b  `       '  d'
                                `             '
  
-Author		: hellking
-File		: PointsInSegments
-Created on	: Mon, 19 April, 2021
+Author      : hellking
+File        : PointsInSegments
+Created on  : Wed, 21 April, 2021
 */
 
 #include <bits/stdc++.h>
