@@ -21,9 +21,9 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                               `b  `       '  d'
                                `             '
  
-Author		: hellking
-File		: MarketingScheme
-Created on	: Tue, 20 April, 2021
+Author      : hellking
+File        : MarketingScheme
+Created on  : Wed, 21 April, 2021
 */
 
 #include <bits/stdc++.h>
