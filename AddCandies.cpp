@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : AddCandies
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,22 +33,16 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
-        else 
-            cont++;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        cout << n << endl;
+        for (int i=1; i<=n; i++)
+            cout << i << " ";
+        cout << endl;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

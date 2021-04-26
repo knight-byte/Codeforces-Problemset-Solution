@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : Cubboards
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,21 +33,27 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
-        else 
-            cont++;
+    int n;
+    cin >> n;
+    int left[n], right[n];
+    for (int i=0; i<n; i++) {
+        cin >> left[i] >> right[i];
     }
-    ans = max(cont, ans);
+    int l1=0, l0=0, r1=0, r0=0;
+    for (int i=0; i<n; i++) {
+        if (right[i]==1)
+            r1++;
+        else 
+            r0++;
+    }
+    int ans = min(r1, r0);
+    for (int i=0; i<n; i++) {
+        if (left[i]==1)
+            l1++;
+        else 
+            l0++;
+    }
+    ans += min(l1, l0);
     cout << ans << endl;
 
     return 0;

@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : PointsInSegments
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,22 +33,24 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
-        else 
-            cont++;
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(m+1);
+    for (int i=1; i<=n; i++) {
+        int l, r;
+        cin >> l >> r;
+        for (int i=l; i<=r; i++)
+            a[i]++;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
+    vector<int> ans;
+    for (int i=1; i<=m; i++) {
+        if (a[i]==0)
+            ans.push_back(i);
+    }
+    cout << ans.size() << endl;
+    for (auto &x:ans)
+        cout << x << " ";
+    cout << endl;
 
     return 0;
 }

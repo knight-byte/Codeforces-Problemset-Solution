@@ -22,8 +22,8 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
-Created on  : Wed, 21 April, 2021
+File        : PolandBall
+Created on  : Thu, 22 April, 2021
 */
 
 #include <bits/stdc++.h>
@@ -31,24 +31,28 @@ using namespace std;
 
 #define ll long long
 
+bool isPrime(int x) {
+    if (x==1)
+        return false;
+    if (x>=2) {
+        for (int i=2; i<x; i++) {
+            if (x%i==0)
+                return false;
+        }
+    }
+    return true;
+}
+
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int n;
+    cin >> n;
+    for (int i=1; i<1000; i++) {
+        if (!isPrime((n*i)+1)) {
+            cout << i << endl;
+            break;
         }
-        else 
-            cont++;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

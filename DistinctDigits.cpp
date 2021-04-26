@@ -22,8 +22,8 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
-Created on  : Wed, 21 April, 2021
+File        : DistinctDigits
+Created on  : Fri, 23 April, 2021
 */
 
 #include <bits/stdc++.h>
@@ -33,22 +33,29 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int l, r;
+    cin >> l >> r;
+    bool state = true;
+    for (int i=l; i<=r; i++) {
+        int k = i;
+        int a[10] = {0};
+        state = true;
+        while (k) {
+            int m = k%10;
+            a[m]++;
+            k /= 10;
+
+            if (a[m]>1) {
+                state = false;
+                break;
+            }
         }
-        else 
-            cont++;
+        if (state) {
+            cout << i << endl;
+            return 0;
+        }
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
+    cout << -1 << endl;
 
     return 0;
 }

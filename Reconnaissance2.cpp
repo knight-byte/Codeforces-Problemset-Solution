@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : Reconnaissance2
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,22 +33,26 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto &x:a)
+        cin >> x;
+    int diff = 100000;
+    pair<int, int> ans;
+    for (int i=0; i<n-1; i++) {
+        int temp = abs(a[i]-a[i+1]);
+        if (temp<diff) {
+            diff = temp;
+            ans.first = i+1;
+            ans.second = i+2;
         }
-        else 
-            cont++;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
-
+    int temp = abs(a[0]-a[n-1]);
+    if (temp<diff) {
+        ans.first = 1;
+        ans.second = n;
+    }
+    cout << ans.first << " " << ans.second << endl;
     return 0;
 }

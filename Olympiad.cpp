@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : Olympiad
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,22 +33,17 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
-        else 
-            cont++;
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto &x:a)
+        cin >> x;
+    set<int> ans;
+    for (int i=0; i<n; i++) {
+        if (a[i]!=0)
+            ans.insert(a[i]);
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
+    cout << ans.size() << endl;
 
     return 0;
 }

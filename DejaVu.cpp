@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : DejaVu
 Created on  : Wed, 21 April, 2021
 */
 
@@ -31,24 +31,29 @@ using namespace std;
 
 #define ll long long
 
+bool isPalindrome(const string &s) {
+    int len = s.size();
+    for (int i=0; i<len; i++) {
+        if (s[i] != s[len-i-1])
+            return false;
+    }
+    return true;
+}
+
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
+    int t;
+    cin >> t;
+    while (t--) {
         string s;
         cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
+        if (!isPalindrome(s+"a"))
+            cout << "YES\n" << s << "a" << endl;
+        else if (!isPalindrome("a"+s))
+            cout << "YES\n" << "a" << s << endl;
         else 
-            cont++;
+            cout << "NO\n";
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

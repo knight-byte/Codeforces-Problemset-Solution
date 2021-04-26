@@ -22,8 +22,8 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
-Created on  : Wed, 21 April, 2021
+File        : StrangeTable
+Created on  : Fri, 23 April, 2021
 */
 
 #include <bits/stdc++.h>
@@ -33,22 +33,17 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
-        else 
-            cont++;
+    int t;
+    cin >> t;
+    while (t--) {
+        ll n, m, x;
+        cin >> n >> m >> x;
+        x--;
+        ll col = x/n;
+        ll row = x%n;
+        ll ans = (row*m) + col + 1;
+        cout << ans << endl;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

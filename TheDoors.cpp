@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : TheDoors
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,22 +33,28 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto &x:a)
+        cin >> x;
+    int doors = 0;
+    int l = count(a.begin(), a.end(), 0);
+    int r = count(a.begin(), a.end(), 1);
+    int l1=0, r1=0;
+    for (int i=0; i<a.size(); i++) {
+        if (a[i]==0) {
+            doors++;
+            l1++;
         }
-        else 
-            cont++;
+        else if (a[i]==1) {
+            doors++;
+            r1++;
+        }
+        if (l1==l || r1==r) 
+            break;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
+    cout << doors << endl;
 
     return 0;
 }

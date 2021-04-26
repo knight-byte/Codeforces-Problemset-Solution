@@ -22,8 +22,8 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
-Created on  : Wed, 21 April, 2021
+File        : SpyDetected
+Created on  : Fri, 23 April, 2021
 */
 
 #include <bits/stdc++.h>
@@ -33,22 +33,55 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int t;
+    cin >> t;
+    // solved using two methods
+    // both are correct
+    // method 1
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (auto &x:a) 
+            cin >> x;
+        for (int i=0; i<n; i++) {
+            int cnt = count(a.begin(), a.end(), a[i]);
+            if (cnt==1) {
+                cout << i+1 << endl;
+                break;
+            }
         }
-        else 
-            cont++;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
+    // method 2
+    /*
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (auto &x:a)
+            cin >> x;
+        for (int i=0; i<n; i++) {
+            if (i==0) {
+                if (a[i]!=a[i+1] && a[i]!=a[i+2]) {
+                    cout << i+1 << endl;
+                    break;
+                }
+            }
+            else if (i==n-1) {
+                if (a[n-1]!=a[n-2] && a[n-1]!=a[n-3]) {
+                    cout << i+1 << endl;
+                    break;
+                }
+            }
+            else {
+                if (a[i]!=a[i+1] && a[i]!=a[i-1]) {
+                    cout << i+1 << endl;
+                    break;
+                }
+            }
+        }
+    }
+    */
 
     return 0;
 }

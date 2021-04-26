@@ -20,10 +20,12 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                               X. 9  `   '  P )X
                               `b  `       '  d'
                                `             '
-Author		: hellking
-File		: Cubboards
-Created on	: Sun, 18 April, 2021
+ 
+Author      : hellking
+File        : FairDivision
+Created on  : Thu, 22 April, 2021
 */
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -31,28 +33,27 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n;
-    cin >> n;
-    int left[n], right[n];
-    for (int i=0; i<n; i++) {
-        cin >> left[i] >> right[i];
-    }
-    int l1=0, l0=0, r1=0, r0=0;
-    for (int i=0; i<n; i++) {
-        if (right[i]==1)
-            r1++;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (auto &x:a)
+            cin >> x;
+        sort(a.rbegin(), a.rend());
+        int alice=a[0], bob=0;
+        for (int i=1; i<n; i++) {
+            if (alice<=bob)
+                alice += a[i];
+            else if (alice>bob)
+                bob += a[i];
+        }
+        if (alice == bob)
+            cout << "YES\n";
         else 
-            r0++;
+            cout << "NO\n";
     }
-    int ans = min(r1, r0);
-    for (int i=0; i<n; i++) {
-        if (left[i]==1)
-            l1++;
-        else 
-            l0++;
-    }
-    ans += min(l1, l0);
-    cout << ans << endl;
 
     return 0;
 }

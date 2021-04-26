@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : TwoBrackets
 Created on  : Wed, 21 April, 2021
 */
 
@@ -31,24 +31,31 @@ using namespace std;
 
 #define ll long long
 
+int solve(string s, char x, char y) {
+    int cnt=0, ans=0;
+    for (int i=0; i<s.size(); i++) {
+        if (s[i] == y) {
+            if (cnt >0) {
+                cnt--;
+                ans++;
+            }
+        }
+        else if (s[i] == x)
+            cnt++;
+    }
+    return ans;
+}
+
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
+    int t;
+    cin >> t;
+    while (t--) {
         string s;
         cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
-        }
-        else 
-            cont++;
+        int ans = solve(s, '(', ')') + solve(s, '[', ']');
+        cout << ans << endl;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

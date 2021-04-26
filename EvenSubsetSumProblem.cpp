@@ -21,9 +21,9 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                               `b  `       '  d'
                                `             '
  
-Author      : hellking
-File        : Opponents
-Created on  : Wed, 21 April, 2021
+Author     : hellking
+File       : EvenSubsetSumProblem
+Created on : Wed, 21 April, 2021
 */
 
 #include <bits/stdc++.h>
@@ -33,22 +33,32 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (auto &x:a)
+            cin >> x;
+        vector<int> odd, even;
+        for (int i=0; i<n; i++) {
+            if (a[i]%2==0)
+                even.push_back(i+1);
+            else 
+                odd.push_back(i+1);
+        }
+        if (even.size()>=1) {
+            cout << 1 << endl;
+            cout << even[0] << endl;
+        }
+        else if (odd.size()>=2) {
+            cout << 2 << endl;
+            cout << odd[0] << " " << odd[1] << endl;
         }
         else 
-            cont++;
+            cout << -1 << endl;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

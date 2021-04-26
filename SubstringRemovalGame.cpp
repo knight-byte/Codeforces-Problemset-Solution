@@ -22,8 +22,8 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
-Created on  : Wed, 21 April, 2021
+File        : SubstringRemovalGame
+Created on  : Fri, 23 April, 2021
 */
 
 #include <bits/stdc++.h>
@@ -33,22 +33,35 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
+    int t;
+    cin >> t;
+    while (t--) {
         string s;
         cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+        vector<int> a;
+        int cnt = 0;
+        for (int i=0; i<s.size(); i++) {
+            if (i==s.size()-1) {
+                if (s[i]=='1') {
+                    cnt++;
+                    a.push_back(cnt);
+                    cnt = 0;
+                }
+            }
+            else if (s[i]=='1' && s[i+1]=='1')
+                cnt++;
+            else if (s[i]=='1' && s[i+1]=='0') {
+                cnt++;
+                a.push_back(cnt);
+                cnt = 0;
+            }
         }
-        else 
-            cont++;
+        sort(a.rbegin(), a.rend());
+        int ans = 0;
+        for (int i=0; i<a.size(); i+=2)
+            ans += a[i];
+        cout << ans << endl;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }

@@ -22,7 +22,7 @@ dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
                                `             '
  
 Author      : hellking
-File        : Opponents
+File        : TomRiddleDiary
 Created on  : Wed, 21 April, 2021
 */
 
@@ -33,22 +33,20 @@ using namespace std;
 
 int main(void) {
     ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-    int n, d;
-    cin >> n >> d;
-    int ans=0, cont=0;
-    for (int i=0; i<d; i++) {
-        string s;
-        cin >> s;
-        int cnt = count(s.begin(), s.end(), '1');
-        if (cnt == n) {
-            ans = max(cont, ans);
-            cont = 0;
+    int n;
+    cin >> n;
+    vector<string> a(n);
+    set<string> ans;
+    for (auto &x:a)
+        cin >> x;
+    for (int i=0; i<n; i++) {
+        if (ans.count(a[i]))
+            cout << "YES\n";
+        else {
+            ans.insert(a[i]);
+            cout << "NO\n";
         }
-        else 
-            cont++;
     }
-    ans = max(cont, ans);
-    cout << ans << endl;
 
     return 0;
 }
